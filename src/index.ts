@@ -182,5 +182,5 @@ server.listen(port);
 	logger.info(`CrewLink Server started: ${address}:${port}`);
 	(httpsEnabled) ? logger.info(`SSL Certificate Path: ${sslCertificatePath}`) : null;
 	logger.info(`Server Name: ${name}`);
-	logger.info(`Discord Guild Id: ${guildId}`);
+	(guildId) ? logger.info(`Discord Guild Id: ${guildId}`) : null;
 })();
