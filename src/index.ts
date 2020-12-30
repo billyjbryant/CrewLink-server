@@ -35,7 +35,7 @@ async function getDiscord(guildId:string=null) {
 	if (guildId) {
 		const response = await axios.get(`https://discord.com/api/guilds/${guildId}/widget.json`)
 		return (response.data) ? response.data : null;
-	}
+	} else { return null }
 }
 
 const io = socketIO(server);
