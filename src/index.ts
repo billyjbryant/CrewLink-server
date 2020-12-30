@@ -8,7 +8,7 @@ import Tracer from 'tracer';
 import morgan from 'morgan';
 import axios from 'axios';
 
-const supportedCrewLinkVersions = new Set(['1.2.0']);
+const supportedCrewLinkVersions = new Set(['1.2.0', '1.2.1']);
 const httpsEnabled = !!process.env.HTTPS;
 
 const port = process.env.PORT || (httpsEnabled ? '443' : '9736');
