@@ -1,22 +1,27 @@
 doctype html
 head
-	title CrewLink Server
+	title #{name}
 	link(rel="icon", href="https://github.com/ottomated/CrewLink/raw/master/logo.png", type="image/x-icon")
-	meta(property='og:title' content='CrewLink Server')
+	meta(property='og:title' content='RMDash.fr CrewLink Server')
 	meta(property='og:description' content='Voice server for Among Us proximity chat')
 	meta(property='og:image' content='https://github.com/ottomated/CrewLink/raw/master/logo.png')
 	style.
+		html, body {
+			height: 100%;
+		}
 		body {
-		background-color: #23272a;
-		color: white;
-		font-family: sans-serif;
-		text-align: center;
+			background: #23272a url('https://wallpapercave.com/wp/wp7864479.png') no-repeat fixed center;
+			color: white;
+			font-family: sans-serif;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
 		}
 		img {
-		height: 128px;
-		width: 128px;
-		margin: 32px auto;
-		display: block;
+			height: 128px;
+			width: 128px;
+			margin: 32px auto;
+			display: block;
 		}
 		a {
 			text-decoration: none;
@@ -25,11 +30,50 @@ head
 		a:hover {
 			text-decoration: underline;
 		}
-img(src="https://github.com/ottomated/CrewLink/raw/master/logo.png")
-h1 CrewLink Server
-p This is a CrewLink Server running on #{address}.
-p There #{connectionCount === 1 ? 'is' : 'are'} currently #{connectionCount} connected user#{connectionCount === 1 ? '' : 's'}.
-p 
-	| To launch your own server, 
-	a(href="https://github.com/ottomated/CrewLink-server", target="_blank") click here
-	| .
+		#wrapper {
+			flex: 1 0 auto;
+		}
+		#details, #discord, #download {
+			background-color: rgba(40, 40, 40, 0.7);
+			border-radius: 10px;
+			border-color: rgba(48,48,48, 0.8);
+			border-width: 1px;
+			width: 600px;
+			display: block;
+			margin: 20px auto;
+			padding: 20px;
+		}
+		#footer {
+			min-width: 100%;
+			flex-shrink: 0;
+			background-color: rgb(30,30,30);
+			padding: 20px;
+		}
+
+#wrapper
+	img(src="https://github.com/ottomated/CrewLink/raw/master/logo.png")
+	#details
+		h1 #{name}
+		p This is a CrewLink Server running on #{address}.
+		p There #{connectionCount === 1 ? 'is' : 'are'} currently #{connectionCount} connected user#{connectionCount === 1 ? '' : 's'}.
+
+	if discord
+		console.log(`Discord Name: ${discord.name} - ${discord.instant_invite}`)
+		#discord
+			p 	To find out more, join the 
+				|
+				br
+				a(href=discord.instant_invite, target="_blank", rel="noopener noreferrer nofollow") #[b #{discord.name}] 
+				| 
+				br
+				| Discord Server!
+
+	#download
+		p 	
+			a(href="https://github.com/ottomated/CrewLink/releases/latest", target="_blank", rel="noopener noreferrer nofollow") Download CrewLink from GitHub!
+
+#footer
+	footer 	Copyright &copy; #{new Date().getFullYear()}. #{name} 
+			| &vert; CrewLink &amp; CrewLink-Server created by 
+			a(href="https://ottomated.net/", target="_blank", rel="noopener noreferrer nofollow") Ottomated 
+			| &vert; Distributed under the GNU General Public License v3.0.
