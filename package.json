@@ -4,10 +4,10 @@
  "main": "index.js",
  "license": "GPL-3.0-or-later",
  "dependencies": {
-  "express": "^4.17.1",
+  "express": "^4.19.2",
   "morgan": "^1.10.0",
-  "pug": "^3.0.0",
-  "socket.io": "^2.3.0",
+  "pug": "^3.0.3",
+  "socket.io": "^2.4.0",
   "tracer": "^1.1.4"
  },
  "scripts": {
